@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+nav.tmdb-header {
+  background-color: #032541 !important;
+}
