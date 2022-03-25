@@ -7,6 +7,10 @@ import Util from '../util'
 
 class MainPage extends Component {
 
+    /**
+     * Main page for hosting search pages
+     * @constructor
+     */
     constructor(props) {
         super(props)
 
@@ -15,12 +19,19 @@ class MainPage extends Component {
         }
     }
 
+    /**
+     * Handle change on select element for choosing search page
+     * @param e - The event
+     */
     handleChange = (e) => {
         this.setState({
             searchType: e.target.value
         })
     }
 
+    /**
+     * Render the page
+     */
     render() {
         var page = SearchPageFactory.getSearchPage(this.state.searchType)
         return (

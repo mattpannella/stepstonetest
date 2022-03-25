@@ -6,6 +6,12 @@ import Util from '../util'
 
 class SearchPageFactory {
 
+    /**
+     * Return a SearchPage based on the type
+     * @param {string} key - The searchpage type requested
+     * @throws {Error} Unknown searchpage type
+     * @returns {JSX}
+     */
     static getSearchPage(key) {
         var page=""
         switch(key) {

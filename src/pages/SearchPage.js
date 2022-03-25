@@ -7,6 +7,10 @@ import Util from '../util'
 
 class SearchPage extends Component {
 
+    /**
+     * Base class for TMDB api search
+     * @constructor
+     */
     constructor(props) {
         super(props)
 
@@ -18,18 +22,31 @@ class SearchPage extends Component {
         }
     }
 
+    /**
+     * Handle change on the text input
+     * @param e - The event
+     */
     handleChange =(e) =>{
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
+    /**
+     * Reload data from API with new page
+     * @param {number} number The page number
+     */
     setPage =(number) =>{
         if(number > 0 && number <= this.state.total_pages) {
             this.loadData(this.state.searchText, number)
         }
     }
 
+    /**
+     * Handle the form submit event
+     * @async
+     * @param e - The event
+     */
     handleSubmit = async (e)=> {
         e.preventDefault()
         this.setState({
@@ -39,6 +56,11 @@ class SearchPage extends Component {
         this.loadData(this.state.searchText, 1)
     }
 
+    /**
+     * Request the appropriate data from the api and update state
+     * @param {string} query The search string
+     * @param {number} page The page number
+     */
     loadData = async (query, page) => {
         this.setState({
             error: false,
@@ -60,7 +82,11 @@ class SearchPage extends Component {
         }
     }
 
-    //override to print nice results
+    /**
+     * Print the results from the api service call
+     * This is intended to be overridden, but provides a barebones text output
+     * @returns {JSX}
+     */
     printResults = () => {
         var output = (
             <div className="container">
@@ -73,6 +99,10 @@ class SearchPage extends Component {
         return output
     }
 
+    /**
+     * Render the search page and results
+     * @returns {JSX}
+     */
     render() {
         const {searchText, page, total_pages, total_results, error, error_message} = this.state
         let pages = [];

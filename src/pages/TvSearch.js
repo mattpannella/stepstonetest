@@ -4,6 +4,10 @@ import TvList from './renderers/TvList'
 
 class TvSearch extends SearchPage {
 
+    /**
+     * Generate output for displaying the results of the api service call
+     * @returns {JSX}
+     */
     printResults = () => {
         var output = (
             <div className="row mb-1">

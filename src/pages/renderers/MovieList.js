@@ -5,6 +5,10 @@ import format from 'date-fns/format'
 
 class MovieList extends Component {
 
+    /**
+     * Renders a table from the results of a search/movies api call
+     * @constructor
+     */
     constructor(props) {
         super(props)
 
@@ -13,6 +17,10 @@ class MovieList extends Component {
         }
     }
 
+    /**
+     * Toggle ownership on a movie, using its ID as the key
+     * @param e - The event
+     */
     toggleOwned = (e)=> {
         const owned = this.state.owned
         const id = e.target.dataset.id;
@@ -22,6 +30,10 @@ class MovieList extends Component {
         })
     }
 
+    /**
+     * Display the table data
+     * @returns {JSX}
+     */
     render() {
         const movies = this.props.movies
         if(movies === undefined || movies.length === 0) {

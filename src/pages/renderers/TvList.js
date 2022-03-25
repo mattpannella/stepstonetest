@@ -5,6 +5,10 @@ import format from 'date-fns/format'
 
 class TvList extends Component {
 
+    /**
+     * Renders a table from the results of a search/tv api call
+     * @constructor
+     */
     constructor(props) {
         super(props)
 
@@ -13,6 +17,10 @@ class TvList extends Component {
         }
     }
 
+    /**
+     * Toggle ownership on a tv show, using its ID as the key
+     * @param e - The event
+     */
     toggleOwned = (e)=> {
         const owned = this.state.owned
         const id = e.target.dataset.id;
@@ -22,6 +30,10 @@ class TvList extends Component {
         })
     }
 
+    /**
+     * Display the table data
+     * @returns {JSX}
+     */
     render() {
         const shows = this.props.shows
         if(shows === undefined || shows.length === 0) {

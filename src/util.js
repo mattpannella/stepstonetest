@@ -2,7 +2,15 @@ class Util {
     static MOVIE_SEARCH = 'MOVIE'
     static TV_SEARCH = 'TV'
     
+    /**
+     * Generate array of page numbers, with 0's representing ellipses, for building pagination
+     * @param {number} totalPages
+     * @param {number} page
+     * @param {number} maxLength
+     * @returns {Array}
+     */
     static paginationHelper(totalPages, page, maxLength) {
+        //just display the full list
         if (maxLength < 5) {
             return [ ...Array(totalPages).keys() ].map( i => i+1);
         }

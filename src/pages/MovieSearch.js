@@ -4,6 +4,10 @@ import MovieList from './renderers/MovieList'
 
 class MovieSearch extends SearchPage {
 
+    /**
+     * Generate output for displaying the results of the api service call
+     * @returns {JSX}
+     */
     printResults = () => {
         var output = (
             <div className="row mb-1">
